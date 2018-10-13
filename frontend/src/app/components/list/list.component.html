@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="headline">
+        <h1>Florian Tepelmann</h1>
+    </div>
+    <div class="work-list">
+        <div *ngFor="let work of works | orderObjectBy: 'beginDate'; let i = index">
+            <a (click)="displayWork(work._id)">{{ work.classifications.join('/') }} - »{{ work.title }}«</a>
+        </div>
+    </div>
+</div>

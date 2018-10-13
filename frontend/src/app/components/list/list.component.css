@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 85vw;
+    height: 90vh;
+    margin: 0 auto;
+    max-width: 1380px;
+}
+
+.headline {
+    width: 48%;
+    align-self: flex-end;
+}
+
+.headline > h1 {
+    margin-bottom: 0;
+    margin-top: 5px;
+    line-height: 1em;
+    font-weight: 400;
+    font-size: 79px;
+}
+
+.work-list {
+    width: 500px;
+    align-self: flex-end;
+}
+
+.work-list a {
+    cursor: pointer;
+}

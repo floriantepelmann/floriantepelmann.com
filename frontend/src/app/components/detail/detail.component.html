@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="bottom">
+        <div class="content">
+            <div class="left-side">
+                <div *ngIf="work.imgUrl" class="image-section">
+                    <img [src]="work.imgUrl">
+                    <p *ngIf="work.imgText">{{ work.imgText }}</p>
+                </div>
+                <div class="headline-wrapper">
+                    <div class="classification">
+                        <span>{{ work.classifications.join(' | ') }}</span>
+                    </div>
+                    <h1 class="headline" [ngClass]="{'headline-long' : (work.title.length > 20), 'headline-short' : (work.title.length <= 20)}">{{ work.title }}</h1>
+                </div>
+            </div>
+            <div class="text-body" [ngClass]="{'link-at-end' : (work.descriptions[work.descriptions.length - 1].linkText && work.descriptions[work.descriptions.length - 1].image || (work.title.length <= 20 && work.descriptions[work.descriptions.length - 1].linkText || work.descriptions[work.descriptions.length - 1].iframe))}">
+                <div class="back-button">
+                    <a href="../../../index.html">&larr; Back</a>
+                </div>
+                <div class="paragraph" *ngFor="let description of work.descriptions">
+                    <h3 *ngIf="description.headline">{{ description.headline }}</h3>
+                    <p class="text-block">{{ description.paragraph }}</p>
+                    <img *ngIf="description.image" [src]="description.image">
+                    <iframe *ngIf="description.iframe" [src]="description.iframe | safe" width="530px" height="400px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <div>
+                        <a *ngIf="description.linkUrl" [href]="description.linkUrl">{{ description.linkText }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
